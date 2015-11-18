@@ -31,7 +31,7 @@ exitCode="1"
 iterationsCounter=0
 ourResult="Found it!"
 
-if [ -f ${pathToWatch}GOTCHA_${fileName} ] 
+if [ -f "${pathToWatch}GOTCHA_${fileName}" ] 
     then
         echo "We already found it"
         let exitCode="0"
@@ -40,7 +40,7 @@ fi
 
 while [ $exitCode -ne 0 ]
 do
-    cp /tmp/*${fileName} ${pathToWatch}GOTCHA_${fileName} 2> /dev/null
+    cp "${pathToWatch}"*"${fileName}" "${pathToWatch}GOTCHA_${fileName}" 2> /dev/null
     exitCode=$?
     sleep 0.2s
 
