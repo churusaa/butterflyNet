@@ -1,15 +1,37 @@
 #!/bin/bash
-# Put your script name here
-ScriptName="test.sh"
+# Bash Butterfly net
+# Written broken, and maintained by Nathanael Duke
+# Nathanael.j.duke@gmail.com github.com/churusaa/butterflyNet
+# Licensed under GPLv2. If you change it, just show me what you changed. :)
+
+
+# Put your file name here
+fileName="test.sh"
+
+# Where are we looking? For best results, use an absolute path here
+# with a trailing slash.
+pathToWatch="/tmp/"
+
+# How long should we wait for a file to appear? (minutes)
+minutes=10
 
 
 
+
+
+
+
+
+
+
+
+# ++++++++End Configurables+++++++
 
 exitCode="1"
 iterationsCounter=0
 ourResult="Found it!"
 
-if [ -f /tmp/GOTCHA_script.sh ] 
+if [ -f ${pathToWatch}GOTCHA_${fileName} ] 
     then
         echo "We already found it"
         let exitCode="0"
@@ -18,12 +40,12 @@ fi
 
 while [ $exitCode -ne 0 ]
 do
-    cp /tmp/*$ScriptName /tmp/GOTCHA_script.sh 2> /dev/null
+    cp /tmp/*${fileName} ${pathToWatch}GOTCHA_${fileName} 2> /dev/null
     exitCode=$?
     sleep 0.2s
 
-    if (($iterationsCounter == 3000)); then
-    echo "Timeout reached: 10 minutes."
+    if (($iterationsCounter == 300 * $minutes )); then
+    echo "Timeout reached: ${minutes} minutes."
     ourResult="Exiting. Timed out waiting."
     exitCode="0"
     else
