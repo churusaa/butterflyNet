@@ -1,7 +1,7 @@
 #!/bin/bash
 # Bash Butterfly net
 # Written broken, and maintained by Nathanael Duke
-# Nathanael.j.duke@gmail.com github.com/churusaa/butterflyNet
+# millicent.j.duke@gmail.com github.com/churusaa/butterflyNet
 # Licensed under GPLv2. If you change it, just show me what you changed. :)
 
 
